@@ -45,10 +45,12 @@ COPY ./run.py /usr/src/couchdb/dev/run
 RUN chmod +x /usr/src/couchdb/dev/run
 RUN chown -R couchdb:couchdb /usr/src/couchdb
 
-#PV run late minute configuration for clustering
-COPY ./setvmargs.sh /setvmargs.sh
-RUN chmod +x /setvmargs.sh
-RUN /setvmargs.sh
+#PV inject the config for bigcouch
+#COPY ./setvmargs.sh /setvmargs.sh
+#RUN chmod +x /setvmargs.sh
+#RUN /setvmargs.sh
+COPY vm.args /usr/src/couchdb/rel/overlay/etc/vm.args
+RUN chown couchdb:couchdb /usr/src/couchdb/rel/overlay/etc/vm.args
 
 USER couchdb
 
