@@ -45,6 +45,11 @@ COPY ./run.py /usr/src/couchdb/dev/run
 RUN chmod +x /usr/src/couchdb/dev/run
 RUN chown -R couchdb:couchdb /usr/src/couchdb
 
+#PV run late minute configuration for clustering
+COPY ./setvmargs.sh /setvmargs.sh
+RUN chmod +x /setvmargs.sh
+RUN /setvmargs.sh
+
 USER couchdb
 
 # Expose to the outside
@@ -54,3 +59,4 @@ EXPOSE 15984 25984 35984
 WORKDIR /usr/src/couchdb
 
 ENTRYPOINT ["/usr/src/couchdb/dev/run"]
+
