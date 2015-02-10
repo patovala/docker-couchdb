@@ -14,7 +14,7 @@
 # (specified using -sname) or it can by fully qualified (-name).  There can be
 # no communication between nodes running with the -sname flag and those running
 # with the -name blabla@yo2.com
--name couchdb@host1
+-name bigcouch@host1
 
 # All nodes must share the same magic cookie for distributed Erlang to work.
 # Comment out this line if you synchronized the cookies by other means (using

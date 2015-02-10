@@ -51,6 +51,16 @@ curl http://localhost:35984
 docker run -i -t klaemo/couchdb:2.0-dev --admin=foo:bar
 ```
 
+```bash
+# expose the cluster url for adding new clusters from outside with 1 local cluster
+[sudo] docker run -i -t -p 15984:15984 -p 15986:15986 --name couchdb patovala/dbhost1 -n 1
+
+curl http://localhost:15984
+
+and here is the bigcouch admin url
+curl http://localhost:15986
+```
+
 ## Build your own
 
 You can use `klaemo/couchdb` as the base image for your own couchdb instance.
