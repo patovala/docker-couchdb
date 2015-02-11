@@ -49,8 +49,8 @@ RUN chown -R couchdb:couchdb /usr/src/couchdb
 #COPY ./setvmargs.sh /setvmargs.sh
 #RUN chmod +x /setvmargs.sh
 #RUN /setvmargs.sh
-COPY vm.args /usr/src/couchdb/rel/overlay/etc/vm.args
-RUN chown couchdb:couchdb /usr/src/couchdb/rel/overlay/etc/vm.args
+#COPY vm.args /usr/src/couchdb/rel/overlay/etc/vm.args
+#RUN chown couchdb:couchdb /usr/src/couchdb/rel/overlay/etc/vm.args
 
 USER couchdb
 
